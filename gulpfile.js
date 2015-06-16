@@ -19,7 +19,7 @@ browserified = transform(function(filename) {
 });
 
 gulp.task('dist', function () {
-  browserify([__dirname + '/lib/ReactCanvas.js'])
+  browserify([__dirname + '/dist/index.js'])
     .bundle()
       .on('error', function(err) {
         console.log(err.message);

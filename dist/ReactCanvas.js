@@ -1,6 +1,28 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
+var ReactCanvas = {
+  Surface: require('../lib/Surface'),
+
+  Layer: require('../lib/Layer'),
+  Group: require('../lib/Group'),
+  Image: require('../lib/Image'),
+  Text: require('../lib/Text'),
+  Point: require('../lib/Point'),
+  Line: require('../lib/Line'),
+  ListView: require('../lib/ListView'),
+
+  FontFace: require('../lib/FontFace'),
+  measureText: require('../lib/measureText'),
+
+  React: require('react/dist/react-with-addons')
+};
+
+window.ReactCanvas = ReactCanvas
+window.React = React
+},{"../lib/FontFace":8,"../lib/Group":11,"../lib/Image":12,"../lib/Layer":14,"../lib/Line":17,"../lib/ListView":18,"../lib/Point":19,"../lib/Surface":21,"../lib/Text":22,"../lib/measureText":27,"react/dist/react-with-addons":36}],2:[function(require,module,exports){
+'use strict';
+
 var assign = require('react/lib/Object.assign');
 
 // Note that this class intentionally does not use PooledClass.
@@ -41,7 +63,7 @@ Canvas.poolSize = 30;
 
 module.exports = Canvas;
 
-},{"react/lib/Object.assign":62}],2:[function(require,module,exports){
+},{"react/lib/Object.assign":62}],3:[function(require,module,exports){
 'use strict';
 
 var FontFace = require('./FontFace');
@@ -286,7 +308,7 @@ module.exports = {
 };
 
 
-},{"./FontFace":7,"./clamp":23,"./measureText":27}],3:[function(require,module,exports){
+},{"./FontFace":8,"./clamp":23,"./measureText":27}],4:[function(require,module,exports){
 'use strict';
 
 // Adapted from ReactART:
@@ -417,7 +439,7 @@ var ContainerMixin = assign({}, ReactMultiChild.Mixin, {
 
 module.exports = ContainerMixin;
 
-},{"react":191,"react/lib/Object.assign":62,"react/lib/ReactMultiChild":107,"react/lib/emptyObject":151}],4:[function(require,module,exports){
+},{"react":191,"react/lib/Object.assign":62,"react/lib/ReactMultiChild":107,"react/lib/emptyObject":151}],5:[function(require,module,exports){
 'use strict';
 
 var ImageCache = require('./ImageCache');
@@ -863,7 +885,7 @@ module.exports = {
   layerContainsFontFace: layerContainsFontFace
 };
 
-},{"./Canvas":1,"./CanvasUtils":2,"./FontFace":7,"./FontUtils":8,"./FrameUtils":9,"./ImageCache":12}],5:[function(require,module,exports){
+},{"./Canvas":2,"./CanvasUtils":3,"./FontFace":8,"./FontUtils":9,"./FrameUtils":10,"./ImageCache":13}],6:[function(require,module,exports){
 // Penner easing equations
 // https://gist.github.com/gre/1650294
 
@@ -901,7 +923,7 @@ var Easing = {
 
 module.exports = Easing;
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 'use strict';
 
 // Supported events that RenderLayer's can subscribe to.
@@ -914,7 +936,7 @@ module.exports = {
   onClick: 'click'
 };
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
 var _fontFaces = {};
@@ -969,7 +991,7 @@ function getCacheKey (family, url, attributes) {
 
 module.exports = FontFace;
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
 var FontFace = require('./FontFace');
@@ -1156,7 +1178,7 @@ module.exports = {
   loadFont: _useNativeImpl ? loadFontNative : loadFont
 };
 
-},{"./FontFace":7}],9:[function(require,module,exports){
+},{"./FontFace":8}],10:[function(require,module,exports){
 'use strict';
 
 function Frame (x, y, width, height) {
@@ -1289,7 +1311,7 @@ module.exports = {
 };
 
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 var createComponent = require('./createComponent');
@@ -1327,7 +1349,7 @@ var Group = createComponent('Group', LayerMixin, ContainerMixin, {
 
 module.exports = Group;
 
-},{"./ContainerMixin":3,"./LayerMixin":14,"./RenderLayer":20,"./createComponent":24}],11:[function(require,module,exports){
+},{"./ContainerMixin":4,"./LayerMixin":15,"./RenderLayer":20,"./createComponent":24}],12:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -1451,7 +1473,7 @@ var Image = React.createClass({
 
 module.exports = Image;
 
-},{"./Easing":5,"./Group":10,"./ImageCache":12,"./Layer":13,"./LayerMixin":14,"./clamp":23,"./createComponent":24,"react":191,"react/lib/Object.assign":62}],12:[function(require,module,exports){
+},{"./Easing":6,"./Group":11,"./ImageCache":13,"./Layer":14,"./LayerMixin":15,"./clamp":23,"./createComponent":24,"react":191,"react/lib/Object.assign":62}],13:[function(require,module,exports){
 'use strict';
 
 var EventEmitter = require('events');
@@ -1615,7 +1637,7 @@ var ImageCache = {
 
 module.exports = ImageCache;
 
-},{"events":28,"react/lib/Object.assign":62}],13:[function(require,module,exports){
+},{"events":28,"react/lib/Object.assign":62}],14:[function(require,module,exports){
 'use strict';
 
 var createComponent = require('./createComponent');
@@ -1642,7 +1664,7 @@ var Layer = createComponent('Layer', LayerMixin, {
 
 module.exports = Layer;
 
-},{"./LayerMixin":14,"./createComponent":24}],14:[function(require,module,exports){
+},{"./LayerMixin":15,"./createComponent":24}],15:[function(require,module,exports){
 'use strict';
 
 // Adapted from ReactART:
@@ -1733,7 +1755,7 @@ var LayerMixin = {
 
 module.exports = LayerMixin;
 
-},{"./DrawingUtils":4,"./EventTypes":6,"./FrameUtils":9}],15:[function(require,module,exports){
+},{"./DrawingUtils":5,"./EventTypes":7,"./FrameUtils":10}],16:[function(require,module,exports){
 // https://github.com/facebook/css-layout
 
 /**
@@ -2395,7 +2417,7 @@ if (typeof module === 'object') {
   module.exports = computeLayout;
 }
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 var createComponent = require('./createComponent');
@@ -2432,7 +2454,7 @@ var Line = createComponent('Line', LayerMixin, {
 });
 
 module.exports = Line;
-},{"./LayerMixin":14,"./createComponent":24}],17:[function(require,module,exports){
+},{"./LayerMixin":15,"./createComponent":24}],18:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -2620,7 +2642,7 @@ var ListView = React.createClass({
 
 module.exports = ListView;
 
-},{"./Group":10,"./clamp":23,"react":191,"react/lib/Object.assign":62,"scroller":192}],18:[function(require,module,exports){
+},{"./Group":11,"./clamp":23,"react":191,"react/lib/Object.assign":62,"scroller":192}],19:[function(require,module,exports){
 'use strict';
 
 var createComponent = require('./createComponent');
@@ -2658,28 +2680,7 @@ var Point = createComponent('Point', LayerMixin, {
 });
 
 module.exports = Point;
-},{"./LayerMixin":14,"./createComponent":24}],19:[function(require,module,exports){
-'use strict';
-
-var ReactCanvas = {
-  Surface: require('./Surface'),
-
-  Layer: require('./Layer'),
-  Group: require('./Group'),
-  Image: require('./Image'),
-  Text: require('./Text'),
-  Point: require('./Point'),
-  Line: require('./Line'),
-  ListView: require('./ListView'),
-
-  FontFace: require('./FontFace'),
-  measureText: require('./measureText'),
-
-  React: require('react/dist/react-with-addons')
-};
-
-window.ReactCanvas = ReactCanvas
-},{"./FontFace":7,"./Group":10,"./Image":11,"./Layer":13,"./Line":16,"./ListView":17,"./Point":18,"./Surface":21,"./Text":22,"./measureText":27,"react/dist/react-with-addons":36}],20:[function(require,module,exports){
+},{"./LayerMixin":15,"./createComponent":24}],20:[function(require,module,exports){
 'use strict';
 
 var FrameUtils = require('./FrameUtils');
@@ -2869,7 +2870,7 @@ RenderLayer.prototype = {
 
 module.exports = RenderLayer;
 
-},{"./DrawingUtils":4,"./EventTypes":6,"./FrameUtils":9}],21:[function(require,module,exports){
+},{"./DrawingUtils":5,"./EventTypes":7,"./FrameUtils":10}],21:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -3092,7 +3093,7 @@ var Surface = React.createClass({
 module.exports = Surface;
 
 }).call(this,require('_process'))
-},{"./ContainerMixin":3,"./DrawingUtils":4,"./FrameUtils":9,"./RenderLayer":20,"./hitTest":25,"./layoutNode":26,"_process":29,"react":191,"react/lib/ReactUpdates":123,"react/lib/invariant":171}],22:[function(require,module,exports){
+},{"./ContainerMixin":4,"./DrawingUtils":5,"./FrameUtils":10,"./RenderLayer":20,"./hitTest":25,"./layoutNode":26,"_process":29,"react":191,"react/lib/ReactUpdates":123,"react/lib/invariant":171}],22:[function(require,module,exports){
 'use strict';
 
 var createComponent = require('./createComponent');
@@ -3147,7 +3148,7 @@ function childrenAsString(children) {
 }
 
 module.exports = Text;
-},{"./LayerMixin":14,"./createComponent":24}],23:[function(require,module,exports){
+},{"./LayerMixin":15,"./createComponent":24}],23:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3304,7 +3305,7 @@ module.exports = hitTest;
 module.exports.getHitHandle = getHitHandle;
 
 
-},{"./EventTypes":6,"./FrameUtils":9}],26:[function(require,module,exports){
+},{"./EventTypes":7,"./FrameUtils":10}],26:[function(require,module,exports){
 'use strict';
 
 var computeLayout = require('./Layout');
@@ -3351,7 +3352,7 @@ function walkNode (node, parentLeft, parentTop) {
 
 module.exports = layoutNode;
 
-},{"./Layout":15}],27:[function(require,module,exports){
+},{"./Layout":16}],27:[function(require,module,exports){
 'use strict';
 
 var FontFace = require('./FontFace');
@@ -3450,7 +3451,7 @@ module.exports = function measureText (text, width, fontFace, fontSize, lineHeig
   return measuredSize;
 };
 
-},{"./FontFace":7,"./FontUtils":8,"linebreak":34}],28:[function(require,module,exports){
+},{"./FontFace":8,"./FontUtils":9,"linebreak":34}],28:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -47682,4 +47683,4 @@ var Scroller;
 	module.exports = Scroller;
 })();
 
-},{"./Animate":193}]},{},[19]);
+},{"./Animate":193}]},{},[1]);
