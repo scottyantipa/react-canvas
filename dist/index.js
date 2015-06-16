@@ -16,9 +16,7 @@ var ReactCanvas = {
 
   FontFace: require('../lib/FontFace'),
   measureText: require('../lib/measureText'),
-
-  React: require('react/dist/react-with-addons')
 };
 
-window.ReactCanvas = ReactCanvas
-window.React = React
+window.ReactCanvas = ReactCanvas;
+window.React = require('react/dist/react-with-addons');
