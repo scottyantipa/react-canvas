@@ -1,6 +1,9 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
+// Index for the browserify process to create a dist
+// It attaches ReactCanvas and React to window for use by other libs
+
 var ReactCanvas = {
   Surface: require('../lib/Surface'),
 
@@ -14,12 +17,10 @@ var ReactCanvas = {
 
   FontFace: require('../lib/FontFace'),
   measureText: require('../lib/measureText'),
-
-  React: require('react/dist/react-with-addons')
 };
 
-window.ReactCanvas = ReactCanvas
-window.React = React
+window.ReactCanvas = ReactCanvas;
+window.React = require('react/dist/react-with-addons');
 },{"../lib/FontFace":8,"../lib/Group":11,"../lib/Image":12,"../lib/Layer":14,"../lib/Line":17,"../lib/ListView":18,"../lib/Point":19,"../lib/Surface":21,"../lib/Text":22,"../lib/measureText":27,"react/dist/react-with-addons":36}],2:[function(require,module,exports){
 'use strict';
 
