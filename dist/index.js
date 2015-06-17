@@ -3,7 +3,7 @@
 // Index for the browserify process to create a dist
 // It attaches ReactCanvas and React to window for use by other libs
 
-window.React = require('react/dist/react-with-addons');
+window.React = require('react');
 
 var ReactCanvas = {
   Surface: require('../lib/Surface'),
