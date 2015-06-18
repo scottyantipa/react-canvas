@@ -3,12 +3,30 @@ var del = require('del');
 var connect = require('gulp-connect');
 var webpack = require('gulp-webpack');
 var webpackConfig = require('./webpack.config.js');
+var browserify = require('browserify');
+var transform  = require('vinyl-transform');
+var source     = require('vinyl-source-stream');
 
 var port = process.env.PORT || 8080;
 var reloadPort = process.env.RELOAD_PORT || 35729;
 
 gulp.task('clean', function () {
   del(['build']);
+});
+
+browserified = transform(function(filename) {
+  browserify(filename).bundle();
+});
+
+gulp.task('dist', function () {
+  browserify([__dirname + '/dist/index.js'])
+    .bundle()
+      .on('error', function(err) {
+        console.log(err.message);
+        this.emit('end');
+      })
+      .pipe(source('ReactCanvas.js'))
+      .pipe(gulp.dest('./dist/'))
 });
 
 gulp.task('build', function () {
