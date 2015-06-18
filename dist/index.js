@@ -14,6 +14,7 @@ var ReactCanvas = {
   Text: require('../lib/Text'),
   Point: require('../lib/Point'),
   Line: require('../lib/Line'),
+  MultiLine: require('../lib/MultiLine'),
   ListView: require('../lib/ListView'),
 
   FontFace: require('../lib/FontFace'),
