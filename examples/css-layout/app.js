@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactCanvas = require('react-canvas');
+var createReactClass = require('create-react-class');
 
 var Surface = ReactCanvas.Surface;
 var Group = ReactCanvas.Group;
@@ -8,7 +9,7 @@ var Image = ReactCanvas.Image;
 var Text = ReactCanvas.Text;
 var FontFace = ReactCanvas.FontFace;
 
-var App = React.createClass({
+var App = createReactClass({
 
   componentDidMount: function () {
     window.addEventListener('resize', this.handleResize, true);
