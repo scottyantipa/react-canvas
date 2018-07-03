@@ -82,12 +82,14 @@ Here is a very simple component that renders text below an image:
 ```javascript
 var React = require('react');
 var ReactCanvas = require('react-canvas');
+var createReactClass = require('create-react-class');
+
 
 var Surface = ReactCanvas.Surface;
 var Image = ReactCanvas.Image;
 var Text = ReactCanvas.Text;
 
-var MyComponent = React.createClass({
+var MyComponent = createReactClass({
 
   render: function () {
     var surfaceWidth = window.innerWidth;
@@ -143,7 +145,7 @@ The `numberOfItemsGetter`, `itemHeightGetter` and `itemGetter` props are all req
 ```javascript
 var ListView = ReactCanvas.ListView;
 
-var MyScrollingListView = React.createClass({
+var MyScrollingListView = createReactClass({
 
   render: function () {
     return (

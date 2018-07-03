@@ -2,19 +2,22 @@
 
 var React = require('react');
 var ReactCanvas = require('react-canvas');
+var PropTypes = require('prop-types');
+var createReactClass = require('create-react-class');
+
 
 var Group = ReactCanvas.Group;
 var Image = ReactCanvas.Image;
 var Text = ReactCanvas.Text;
 
-var Item = React.createClass({
+var Item = createReactClass({
 
   propTypes: {
-    width: React.PropTypes.number.isRequired,
-    height: React.PropTypes.number.isRequired,
-    imageUrl: React.PropTypes.string.isRequired,
-    title: React.PropTypes.string.isRequired,
-    itemIndex: React.PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    itemIndex: PropTypes.number.isRequired,
   },
 
   statics: {

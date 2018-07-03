@@ -3,11 +3,12 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactCanvas = require('react-canvas');
+var createReactClass = require('create-react-class');
 
 var Gradient = ReactCanvas.Gradient;
 var Surface = ReactCanvas.Surface;
 
-var App = React.createClass({
+var App = createReactClass({
 
   render: function () {
     var size = this.getSize();

@@ -2,6 +2,8 @@
 
 var React = require('react');
 var ReactCanvas = require('react-canvas');
+var PropTypes = require('prop-types');
+var createReactClass = require('create-react-class');
 
 var Group = ReactCanvas.Group;
 var Image = ReactCanvas.Image;
@@ -16,13 +18,13 @@ var TEXT_ALPHA_SPEED_IN_MULTIPLIER = 2.6;
 var IMAGE_LAYER_INDEX = 2;
 var TEXT_LAYER_INDEX = 1;
 
-var Page = React.createClass({
+var Page = createReactClass({
 
   propTypes: {
-    width: React.PropTypes.number.isRequired,
-    height: React.PropTypes.number.isRequired,
-    article: React.PropTypes.object.isRequired,
-    scrollTop: React.PropTypes.number.isRequired
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    article: PropTypes.object.isRequired,
+    scrollTop: PropTypes.number.isRequired
   },
 
   componentWillMount: function () {

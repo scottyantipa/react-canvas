@@ -3,13 +3,14 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactCanvas = require('react-canvas');
+var createReactClass = require('create-react-class');
 var Page = require('./components/Page');
 var articles = require('../common/data');
 
 var Surface = ReactCanvas.Surface;
 var ListView = ReactCanvas.ListView;
 
-var App = React.createClass({
+var App = createReactClass({
 
   render: function () {
     var size = this.getSize();
